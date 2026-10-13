@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HobbyHub | Discover Your Passion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="#" class="logo"><span class="logo-icon">✳</span> HobbyHub</a>
+      <nav>
+        <a href="#discover">Discover</a>
+        <a href="#my-hobbies"
+          >My Hobbies <span id="nav-count" class="count">0</span></a
+        >
+      </nav>
+      <a href="#add-hobby" class="nav-button">+ Add Hobby</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">YOUR FREE TIME, REIMAGINED</span>
+          <h1>Find something<br />you <span>love doing.</span></h1>
+          <p>
+            Explore new interests, discover your next passion, and make more
+            room for the things that make you happy.
+          </p>
+          <a href="#discover" class="primary-button"
+            >Explore hobbies <span>→</span></a
+          >
+          <div class="hero-stats">
+            <div>
+              <strong id="total-count">12</strong
+              ><span>Hobbies to explore</span>
+            </div>
+            <div>
+              <strong id="saved-count">0</strong><span>Hobbies saved</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="art-circle circle-one"></div>
+          <div class="art-circle circle-two"></div>
+          <div class="art-card art-card-main">
+            <span class="art-emoji">🎨</span>
+            <span class="art-label">MAKE SOMETHING</span>
+            <strong>Creativity<br />starts here.</strong>
+          </div>
+          <div class="floating-note note-top">✨ Find your flow</div>
+          <div class="floating-note note-bottom">
+            🌱 Grow a little every day
+          </div>
+        </div>
+      </section>
+
+      <section id="discover" class="section discover-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">A WORLD OF POSSIBILITIES</span>
+            <h2>Explore hobbies</h2>
+            <p>Find an activity that fits your mood and lifestyle.</p>
+          </div>
+        </div>
+
+        <div class="search-row">
+          <div class="search-box">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search hobbies..."
+              aria-label="Search hobbies"
+            />
+          </div>
+          <select id="sort-select" aria-label="Sort hobbies">
+            <option value="default">Featured first</option>
+            <option value="az">Name: A–Z</option>
+            <option value="easy">Beginner friendly</option>
+          </select>
+        </div>
+
+        <div id="category-filters" class="category-filters">
+          <button class="filter-chip active" data-category="All">
+            All hobbies
+          </button>
+          <button class="filter-chip" data-category="Creative">
+            🎨 Creative
+          </button>
+          <button class="filter-chip" data-category="Outdoor">
+            🌿 Outdoor
+          </button>
+          <button class="filter-chip" data-category="Fitness">
+            💪 Fitness
+          </button>
+          <button class="filter-chip" data-category="Relaxation">
+            ☁️ Relaxation
+          </button>
+          <button class="filter-chip" data-category="Learning">
+            📚 Learning
+          </button>
+        </div>
+
+        <div id="hobby-grid" class="hobby-grid"></div>
+        <div id="empty-state" class="empty-state hidden">
+          <span>🔎</span>
+          <h3>No hobbies found</h3>
+          <p>Try another search or choose a different category.</p>
+          <button id="reset-filters" class="secondary-button">
+            Clear filters
+          </button>
+        </div>
+      </section>
+
+      <section id="my-hobbies" class="section saved-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR PERSONAL COLLECTION</span>
+            <h2>
+              My hobbies
+              <span id="saved-heading-count" class="heading-count">0</span>
+            </h2>
+            <p>All the activities you want to make time for.</p>
+          </div>
+        </div>
+        <div id="saved-grid" class="saved-grid"></div>
+        <div id="saved-empty" class="saved-empty">
+          <span>💛</span>
+          <h3>Your collection starts here</h3>
+          <p>
+            Tap the heart on any hobby to save it to your personal collection.
+          </p>
+          <a href="#discover" class="secondary-button">Discover hobbies</a>
+        </div>
+      </section>
+
+      <section id="add-hobby" class="section add-section">
+        <div class="add-panel">
+          <div class="add-copy">
+            <span class="eyebrow">SOMETHING MISSING?</span>
+            <h2>Got a hobby in mind?</h2>
+            <p>Add your own favorite activity and make this space yours.</p>
+          </div>
+          <form id="hobby-form" class="hobby-form">
+            <label for="hobby-name">Hobby name</label>
+            <input
+              id="hobby-name"
+              name="name"
+              type="text"
+              maxlength="50"
+              placeholder="e.g. Gardening"
+              required
+            />
+
+            <label for="hobby-category">Category</label>
+            <select id="hobby-category" name="category" required>
+              <option value="Creative">Creative</option>
+              <option value="Outdoor">Outdoor</option>
+              <option value="Fitness">Fitness</option>
+              <option value="Relaxation">Relaxation</option>
+              <option value="Learning">Learning</option>
+            </select>
+
+            <label for="hobby-description">Short description</label>
+            <textarea
+              id="hobby-description"
+              name="description"
+              maxlength="160"
+              rows="2"
+              placeholder="What makes this hobby special?"
+              required
+            ></textarea>
+
+            <label for="hobby-time">Time commitment</label>
+            <select id="hobby-time" name="time">
+              <option value="15–30 min">15–30 min</option>
+              <option value="30–60 min">30–60 min</option>
+              <option value="1–2 hours">1–2 hours</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+
+            <button type="submit" class="primary-button form-submit">
+              Add to HobbyHub <span>→</span>
+            </button>
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#" class="logo"><span class="logo-icon">✳</span> HobbyHub</a>
+      <p>A little passion goes a long way.</p>
+      <span>Made for curious minds ✨</span>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
